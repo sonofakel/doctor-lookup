@@ -10,3 +10,4 @@ $(function() {
       $('#solution').append("<li>" + element + "</li>");
     });
   });
+});
