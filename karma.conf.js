@@ -1,0 +1,35 @@
+// Karma configuration
+// Generated on Wed Sep 06 2017 11:28:37 GMT-0700 (PDT)
+
+module.exports = function(config) {
+  config.set({
+    basePath: '',
+    frameworks: ['jquery-3.2.1', 'jasmine', 'browserify'],
+    files: [
+      'js/*.js',
+      'spec/*-spec.js',
+    ],
+    exclude: [
+    ],
+    preprocessors: {
+      'js/*.js': [ 'browserify'],
+      'spec/*.js': ['browserify'],
+    },
+    plugins: [
+      'karma-jquery',
+      'karma-browserify',
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-jasmine-html-reporter'
+    ],
+
+    reporters: ['progress', 'kjhtml'],
+    port: 9876,
+    colors: true,
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false,
+    concurrency: Infinity
+  })
+}
