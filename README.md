@@ -12,6 +12,9 @@ npm install
 ```
 bower install
 ```
+```
+gulp build
+```
 
 ## Blank fields to fill through Boilerplate
 
