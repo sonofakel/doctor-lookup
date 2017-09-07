@@ -1,10 +1,10 @@
-function ObjectName(propertyInput) {
+export class ObjectName {
+constructor (propertyInput) {
   this.property = propertyInput;
   this.property = propertyInput;
 }
 
-ObjectName.prototype.MethodName = function(InputParameter) {
+MethodName(InputParameter) {
 
+}
 };
-
-exports.objectModule = ObjectName;
