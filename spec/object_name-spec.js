@@ -1,4 +1,4 @@
-var ObjectName = require('./../js/object_name.js').objectModule;
+import { ObjectName } from './../js/object_name.js';
 
 describe('Object', function() {
 
