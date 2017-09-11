@@ -2,6 +2,12 @@
 
 ## Initial set up of Boilerplate
 
+### Rename root directory, and files in js and spec.
+
+`mv javascript-boilerplate your-project-name`
+
+etc
+
 ### Commands to run after cloning locally
 
 #### Install `npm` and `bower` dependencies after cloning
