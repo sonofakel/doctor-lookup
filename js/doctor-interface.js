@@ -1,11 +1,21 @@
-import { ObjectName } from './../js/object_name.js';
+import { Doctor } from './../js/doctor.js';
 
 $(function() {
-  $('#name-of-form').submit(function(event) {
+  $('#med-issue-form').submit(function(event) {
     event.preventDefault();
-    var nameOfField = $('#field-id').val();
-    var newObject = new ObjectName(propertyInput);
-    var output = newObject.methodName(InputParameter);
+    var medIssue = $('#med-issue').val();
+    var doctor = new Doctor();
+    var output = doctor.findMedIssue(medIssue);
+    output.forEach(function(doctor) {
+      $('#solution').append("<li>" + element + "</li>");
+    });
+  });
+
+  $('#find-doc-form').submit(function(event) {
+    event.preventDefault();
+    var docName = $('#doc-name').val();
+    var doctor = new Doctor();
+    var output = doctor.findDoctor(name);
     output.forEach(function(element) {
       $('#solution').append("<li>" + element + "</li>");
     });
