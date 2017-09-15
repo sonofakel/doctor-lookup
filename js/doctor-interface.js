@@ -23,7 +23,18 @@ $(document).ready(function() {
 
     promise.then(function(response) {
       let body = JSON.parse(response);
-      console.log(body);
+      let bodyArray = body.data;
+      console.log(bodyArray[2]);
+      for (let i = 0; i < bodyArray.length; i++) {
+      $('#solution').append(`<h3> ${bodyArray[i].profile.first_name} ${bodyArray[i].profile.last_name} </h3>`);
+      $('#solution').append(`<li> Address: ${bodyArray[i].practices[0].visit_address.street}, ${bodyArray[i].practices[0].visit_address.city}, ${bodyArray[i].practices[0].visit_address.state}, ${bodyArray[i].practices[0].visit_address.zip} </li>`);
+      $('#solution').append(`<li> Phone Number: ${bodyArray[i].practices[0].phones[0].number} </li>`);
+      if (bodyArray[i].practices[0].website !== undefined) {
+      $('#solution').append(`<li> Website: ${bodyArray[i].practices[0].website} </li>`);
+      $('#solution').append(`<li> Accepting New Patients: ${bodyArray[i].practices[0].accepts_new_patients
+} </li>`);
+    }
+    }
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
@@ -53,7 +64,18 @@ $(document).ready(function() {
 
       promise.then(function(response) {
         let body = JSON.parse(response);
-        console.log(body);
+        let bodyArray = body.data;
+        console.log(bodyArray[2]);
+        for (let i = 0; i < bodyArray.length; i++) {
+        $('#solution2').append(`<h3> ${bodyArray[i].profile.first_name} ${bodyArray[i].profile.last_name} </h3>`);
+        $('#solution2').append(`<li> Address: ${bodyArray[i].practices[0].visit_address.street}, ${bodyArray[i].practices[0].visit_address.city}, ${bodyArray[i].practices[0].visit_address.state}, ${bodyArray[i].practices[0].visit_address.zip} </li>`);
+        $('#solution2').append(`<li> Phone Number: ${bodyArray[i].practices[0].phones[0].number} </li>`);
+        if (bodyArray[i].practices[0].website !== undefined) {
+        $('#solution2').append(`<li> Website: ${bodyArray[i].practices[0].website} </li>`);
+        $('#solution2').append(`<li> Accepting New Patients: ${bodyArray[i].practices[0].accepts_new_patients
+  } </li>`);
+      }
+    }
       }, function(error) {
         $('.showErrors').text(`There was an error processing your request: ${error.message}`);
       });
