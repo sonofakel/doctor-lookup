@@ -1,32 +1,16 @@
 var apiKey = require('./../.env').apiKey;
+import { Doctor } from './../js/doctor.js';
+
 
 $(document).ready(function() {
   $('#med-issue-form').submit(function() {
     event.preventDefault();
     let medIssue = $('#med-issue').val();
-
-    $('#med-issue').val("");
-
-    let promise = new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${medIssue}&location=47.6129432%2C-122.4821474%2C25&user_location=47.6129432%2C-122.4821474&skip=0&limit=25&user_key=${apiKey}`;
-      request.onload = function() {
-        if (this.status === 200) {
-          resolve(request.response);
-        } else {
-          reject(Error(request.statusText));
-        }
-      }
-      request.open("GET", url, true);
-      request.send();
-    });
-
-    promise.then(function(response) {
-      let body = JSON.parse(response);
-      let bodyArray = body.data;
+    let newDoctor = new Doctor();
+    let bodyArray = newDoctor.findDocMed(medIssue, apiKey);
+    console.log(bodyArray);
       $('#solution').text("");
-      console.log(bodyArray[2]);
-      debugger;
+
       if(bodyArray.length === 0) {
         $("#solution").text("0 Doctors Found")
       } else {
@@ -41,11 +25,8 @@ $(document).ready(function() {
           }
         }
       }
-    }, function(error) {
-      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
   });
-});
 
 $(document).ready(function() {
   $('#doc-name-form').submit(function() {
