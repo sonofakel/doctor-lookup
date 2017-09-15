@@ -1,7 +1,7 @@
 {
-  "name": "javascript-boilerplate",
+  "name": "doctor-lookup",
   "version": "1.0.0",
-  "description": "## Initial set up of Boilerplate",
+  "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "test": "karma start karma.conf.js"

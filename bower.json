@@ -1,6 +1,6 @@
 {
-  "name": "javascript-boilerplate",
-  "description": "## Initial set up of Boilerplate",
+  "name": "doctor-lookup",
+  "description": "",
   "main": "gulpfile.js",
   "license": "ISC",
   "homepage": "",
